@@ -22,3 +22,15 @@ cd cloud-sim-examples/STM32F401RE/hello-world
 Then follow the project's README. To run anything on Cloud Sim, you need an
 API key, from your account's [API Settings](https://simantic.com/account/api).
 The [API reference](https://cloud.simantic.com/v1/docs) has every call.
+
+## Adding an example
+
+A new project goes in its MCU's folder, `<MCU>/<project>/`, with the folder
+named as the API names the MCU (a new MCU gets a new top-level folder). Give
+it a README that says what it does and how to build and run it, and add a
+row for it to the table above.
+
+## License
+
+[MIT](LICENSE), except vendor code such as ST's HAL and Arm's CMSIS in a
+project's `Drivers/` folder, which keeps the license that comes with it.
