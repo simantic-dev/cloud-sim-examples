@@ -60,27 +60,34 @@ runs.
 
 ## Run it on Cloud Sim
 
+Start a run. It prints nothing once the run has started; if jq prints an
+error instead, fix that before going on.
+
 ```
 # Start a run: upload the ELF to a simulated STM32F401RE. The answer is
-# the run, with its id; if the API refuses it, jq says why and this stops.
+# the run, with its id; if the API refuses it, jq says why.
 RUN_ID=$(curl -sS https://cloud.simantic.com/v1/runs \
   -H "Authorization: Bearer $SIMANTIC_API_KEY" \
   -F mcu=STM32F401RE \
   -F uart_encoding=ascii \
-  -F firmware=@build/hello-world.elf | jq -er '.id // error(.error)') &&
+  -F firmware=@build/hello-world.elf | jq -er '.id // error(.error)')
+```
 
+Then wait for the run to end and print what it sent over UART:
+
+```
 # Its UART output, once the run has finished; until then the API answers 409.
 until curl -sf https://cloud.simantic.com/v1/runs/$RUN_ID/output \
   -H "Authorization: Bearer $SIMANTIC_API_KEY"; do sleep 2; done
 ```
 
-The first call uploads the ELF and starts a run on a simulated STM32F401RE;
-the second waits for the run to end and prints what the program sent over
-USART2. The run is also in your
+The first command uploads the ELF and starts a run on a simulated
+STM32F401RE; the second waits for the run to end and prints what the program
+sent over USART2. The run is also in your
 [Cloud Sim history](https://simantic.com/dashboard/cloud-sim).
 
 A run lasts 10 simulated seconds. Add `-F simulated_seconds=30` to the
-first call for longer (up to 60). To run your own firmware, point
+first command for longer (up to 60). To run your own firmware, point
 `firmware=@` at its ELF and set `mcu` to its chip. The
 [API reference](https://cloud.simantic.com/v1/docs) has every option, and
 calls to follow a run live.
