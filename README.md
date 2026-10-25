@@ -28,7 +28,9 @@ The [API reference](https://cloud.simantic.com/v1/docs) has every call.
 A new project goes in its MCU's folder, `<MCU>/<project>/`, with the folder
 named as the API names the MCU (a new MCU gets a new top-level folder). Give
 it a README that says what it does and how to build and run it, and add a
-row for it to the table above.
+row for it to the table above. Add a `simantic.json` beside the build, as
+hello-world has, naming its MCU and build system; Simantic's PR reviewer
+reads it.
 
 ## License
 

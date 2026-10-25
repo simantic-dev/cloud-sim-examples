@@ -1,0 +1,6 @@
+{
+  "$schema": "https://simantic.com/schema/simantic.json",
+  "name": "hello-world",
+  "mcu": "STM32F401RE",
+  "build": { "system": "cubemx-make", "elf": "build/hello-world.elf" }
+}
