@@ -125,6 +125,10 @@ project is generated again.
   where the program goes in its flash and RAM
 - `Makefile`: the build
 - `hello-world.ioc`: the STM32CubeMX project
+- `simantic.json`: what Simantic's [PR reviewer](https://simantic.com/docs/pr-review)
+  needs to know to build and simulate this project when it reviews a pull
+  request: the chip, the build system and the ELF
+  ([the format](https://simantic.com/docs/simantic-json))
 
 ## Add to it with STM32CubeMX
 
