@@ -78,7 +78,7 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
-  unsigned int seconds = 0;
+  uint8_t seconds = 0;
 
   /* USER CODE END 1 */
 
@@ -115,8 +115,8 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-    /* Wait a second, then say how long the program has been running. */
-    HAL_Delay(1000);
+    /* Tick ten times a second so the count feels responsive. */
+    HAL_Delay(100);
     seconds++;
     printf("Running for %u s\r\n", seconds);
   }
