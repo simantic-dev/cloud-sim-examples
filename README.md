@@ -1,5 +1,9 @@
 # Cloud Sim examples
 
+<!-- simantic-banner -->
+> **Simulate your firmware with no hardware.** [Simantic](https://simantic.com) simulates the whole board, peripherals, sensors and buses included. Try it free at **[simantic.com](https://simantic.com)**, or run it locally: `curl -fsSL https://simantic.com/install | sh`
+
+
 Firmware projects to build on your computer and run on
 [Cloud Sim](https://simantic.com/cloud-sim), which simulates the
 microcontroller in the cloud, so you don't need a board.
